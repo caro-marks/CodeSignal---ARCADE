@@ -1,32 +1,39 @@
-### centuryFromYear
+# # # The Journey Begins
 
-def centuryFromYear(year):
+# CENTURY FROM YEAR
+# # Given a year, return the century it is in.
+
+def centuryFromYear1(year):
     cent=year/100
     if cent.is_integer()==True:
         return int(cent)
     else:
         return int(cent)+1
 
-def centuryFromYear(year):
+def centuryFromYear2(year):
     return (year + 99) // 100
 
 
-### checkPalindrome
+# CHECK PALINDROME
+# # Given the string, check ir it is a palindrome.
 
-def checkPalindrome(inputString):
+def checkPalindrome1(inputString):
     revStrin=inputString[::-1]
     if inputString==revStrin:
         return True
     else:
         return False
 
-def checkPalindrome(inputString):
+def checkPalindrome2(inputString):
     return inputString == inputString[::-1]
 
+# # # The Edge of the Ocean
 
-### adjacentElementsProduct
+# ADJACENT ELEMENTS PRODUCT
+# # Given an array of integers,
+# # find the pair of adjacent elements that has the largest product and return that product.
 
-def adjacentElementsProduct(inputArray):
+def adjacentElementsProduct1(inputArray):
     v_max = inputArray[0] * inputArray[1]
     for i in range(len(inputArray)-1):
         act_value = inputArray[i] * inputArray[i+1]
@@ -36,42 +43,46 @@ def adjacentElementsProduct(inputArray):
             continue
     return v_max
 
-def adjacentElementsProduct(inputArray):
+def adjacentElementsProduct2(inputArray):
     return max([inputArray[i] * inputArray[i+1] for i in range(len(inputArray)-1)])
 
 
-### shapeArea
+# SHAPE AREA
+# # Find the area of a n-interesting polygon for a given n.
 
-def shapeArea(n):
+def shapeArea1(n):
     return (n**2)+((n-1)**2)
 
-def shapeArea(n):
+def shapeArea2(n):
     return 2*n*(n-1)+1
 
 
-### makeArrayConsecutive2
+# MAKE ARRAY CONSECUTIVE 2
+# # Figure out
 
-def makeArrayConsecutive2(statues):    
+def makeArrayConsecutive21(statues):    
     needed_statues=[]
     for i in range(min(statues),max(statues)):
         if i not in statues:
             needed_statues.append(i)
     return len(needed_statues)
 
-def makeArrayConsecutive2(statues):
+def makeArrayConsecutive22(statues):
     return max(statues) - min(statues) - len(statues) + 1
 
 
-### almostIncreasingSequence
+# ALMOST INCREASING SEQUENCE
+# # Given an array of integers,
+# # Determine if it's possible to obtain an increasing sequence by removing only one element.
 
-def almostIncreasingSequence(sequence):    
+def almostIncreasingSequence1(sequence):    
     q=sequence[:-1]; w=sequence[1:]; e=sequence[:-2]; r=sequence[2:]
     a=list(zip(q,w)); s=list(zip(e,r))
     d=[1 for i,j in a if i>=j]; f=[1 for i,j in s if i>=j]
     x=sum(d) <=1; y=sum(f) <=1
     return x and y
 
-def almostIncreasingSequence(sequence):
+def almostIncreasingSequence2(sequence):
     droppped = False
     last = prev = min(sequence) - 1
     for elm in sequence:
@@ -89,9 +100,11 @@ def almostIncreasingSequence(sequence):
     return True
 
 
-### matrixElementsSum
+# MATRIX ELEMENTS SUM
+# # Given a matrix of integers,
+# # add up all the values that don't appear below a 0.
 
-def matrixElementsSum(matrix):
+def matrixElementsSum1(matrix):
     forb_ls=[]; all_lst=[]
     for floor in matrix:        
         for room,value in enumerate(floor):
@@ -103,7 +116,7 @@ def matrixElementsSum(matrix):
                 all_lst.append(value)
     return sum(all_lst)
 
-def matrixElementsSum(m):
+def matrixElementsSum2(m):
     r = len(m)
     c = len(m[0])
     total=0
@@ -114,3 +127,4 @@ def matrixElementsSum(m):
             else:
                 break
     return total
+
