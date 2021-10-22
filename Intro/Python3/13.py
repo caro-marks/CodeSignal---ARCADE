@@ -133,16 +133,13 @@ def minesweeper(matrix):
             return 1
         else:
             return 0
-
-    def main():
-        mines = []
-        for i_row in range(len(matrix)):
-            row = []
-            for i_col in range(len(matrix[0])):
-                row.append(count_mines_around(matrix, i_row, i_col))
-            mines.append(row)
-        return mines
-    main()
+    mines = []
+    for i_row in range(len(matrix)):
+        row = []
+        for i_col in range(len(matrix[0])):
+            row.append(count_mines_around(matrix, i_row, i_col))
+        mines.append(row)
+    return mines
 
 
 def minesweeper(matrix):
@@ -226,3 +223,24 @@ def alphabeticShift(i):
 
 def alphabeticShift(inputString):
     return ''.join((chr(ord(i)+1) if i != "z" else "a" for i in inputString))
+
+# chessBoardCellColor
+# # Given two cells, check if they have the same color or not
+
+
+def chessBoardCellColor(cell1, cell2):
+    def is_colored(cell):
+        if cell[0] in ('A', 'C', 'E', 'G') and cell[1] in ('1', '3', '5', '7'):
+            return True
+        elif cell[0] in ('B', 'D', 'F', 'H') and cell[1] in ('2', '4', '6', '8'):
+            return True
+        else:
+            return False
+    return is_colored(cell1) == is_colored(cell2)
+
+
+def chessBoardCellColor(cell1, cell2):
+    a, b = "ACEG", "1357"
+    c, d = "BDFH", "2468"
+    return (cell1[0] in a and cell1[1] in b or cell1[0] in c and cell1[1] in d) \
+        == (cell2[0] in a and cell2[1] in b or cell2[0] in c and cell2[1] in d)
